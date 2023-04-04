@@ -1,0 +1,8 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:stud="http://vkiprono.com/api/studentws/studentdetails">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <stud:GetStudentByAdmRequest>
+            <admNo>CS001</admNo>
+        </stud:GetStudentByAdmRequest>
+    </soapenv:Body>
+</soapenv:Envelope>

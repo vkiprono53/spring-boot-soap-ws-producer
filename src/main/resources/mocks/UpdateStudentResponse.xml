@@ -1,0 +1,11 @@
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+    <SOAP-ENV:Header />
+    <SOAP-ENV:Body>
+        <ns3:UpdateStudentResponse xmlns:ns3="http://vkiprono.com/api/studentws/studentdetails">
+            <serviceStatus>
+                <statusCode>SUCCESS</statusCode>
+                <message>Successfully updated student's details</message>
+            </serviceStatus>
+        </ns3:UpdateStudentResponse>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

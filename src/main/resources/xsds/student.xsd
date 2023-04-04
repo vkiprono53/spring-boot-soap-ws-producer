@@ -1,0 +1,112 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns = "http://vkiprono.com/api/studentws/studentdetails"
+           targetNamespace="http://vkiprono.com/api/studentws/studentdetails"
+>
+
+
+<xs:element name="GetStudentByAdmRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="admNo" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="GetStudentByAdmResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="student" type="tns:student"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+    <xs:complexType name="student">
+        <xs:sequence>
+            <xs:element name="studentId" type="xs:long"/>
+            <xs:element name="admNo" type="xs:string"/>
+            <xs:element name="firstName" type="xs:string"/>
+            <xs:element name="lastName" type="xs:string"/>
+            <xs:element name="course" type="xs:string"/>
+            <xs:element name="age" type="xs:int"/>
+            <xs:element name="gender" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:element name="GetAllStudentsRequest">
+        <xs:complexType/>
+
+    </xs:element>
+
+
+    <xs:element name="GetAllStudentsResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="student" type="tns:student" maxOccurs="unbounded">
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="AddStudentRequest">
+    <xs:complexType >
+        <xs:sequence>
+            <xs:element name="admNo" type="xs:string"/>
+            <xs:element name="firstName" type="xs:string"/>
+            <xs:element name="lastName" type="xs:string"/>
+            <xs:element name="course" type="xs:string"/>
+            <xs:element name="age" type="xs:int"/>
+            <xs:element name="gender" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    </xs:element>
+
+    <xs:element name="AddStudentResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="student" type="tns:student"/>
+                <xs:element name="serviceStatus" type="tns:ServiceStatus"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="UpdateStudentRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="student" type="tns:student"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="UpdateStudentResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="serviceStatus" type="tns:ServiceStatus"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="DeleteStudentRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="admNo" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="DeleteStudentResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="serviceStatus" type="tns:ServiceStatus"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="ServiceStatus">
+        <xs:sequence>
+            <xs:element name="statusCode" type="xs:string"/>
+            <xs:element name="message" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

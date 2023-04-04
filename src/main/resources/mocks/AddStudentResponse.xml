@@ -1,0 +1,20 @@
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+    <SOAP-ENV:Header />
+    <SOAP-ENV:Body>
+        <ns3:AddStudentResponse xmlns:ns3="http://vkiprono.com/api/studentws/studentdetails">
+            <student>
+                <studentId>11</studentId>
+                <admNo>BC001</admNo>
+                <firstName>June</firstName>
+                <lastName>Bo</lastName>
+                <course>Economics</course>
+                <age>23</age>
+                <gender>Female</gender>
+            </student>
+            <serviceStatus>
+                <statusCode>SUCCESS</statusCode>
+                <message>Successfully added student's details</message>
+            </serviceStatus>
+        </ns3:AddStudentResponse>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

@@ -1,0 +1,18 @@
+
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+    <SOAP-ENV:Header />
+    <SOAP-ENV:Body>
+        <ns3:GetStudentByAdmResponse xmlns:ns3="http://vkiprono.com/api/studentws/studentdetails">
+            <student>
+                <studentId>4</studentId>
+                <admNo>CS001</admNo>
+                <firstName>Kiki</firstName>
+                <lastName>Alan</lastName>
+                <course>Computer Science</course>
+                <age>20</age>
+                <gender>Male</gender>
+            </student>
+        </ns3:GetStudentByAdmResponse>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+

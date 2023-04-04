@@ -1,0 +1,16 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:stud="http://vkiprono.com/api/studentws/studentdetails">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <stud:UpdateStudentRequest>
+            <student>
+                <studentId>11</studentId>
+                <admNo>AC005</admNo>
+                <firstName>Terry</firstName>
+                <lastName>Bo</lastName>
+                <course>Economics</course>
+                <age>22</age>
+                <gender>Female</gender>
+            </student>
+        </stud:UpdateStudentRequest>
+    </soapenv:Body>
+</soapenv:Envelope>
