@@ -18,4 +18,6 @@ public class ServiceStatusConstant {
     public static final String MSG_DELETE_OK = "Student successfuly deleted";
     public static final String MSG_DELETE_FAIL = "Failed to delete student";
 
+
+
 }

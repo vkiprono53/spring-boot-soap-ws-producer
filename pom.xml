@@ -6,7 +6,6 @@
     <artifactId>studentws</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>studentws</name>
-    <packaging>jar</packaging>
     <description>studentws</description>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -19,9 +18,7 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.source>1.8</maven.compiler.source>
     </properties>
-
     <dependencies>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -31,11 +28,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web-services</artifactId>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
-
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
@@ -67,25 +64,73 @@
             <artifactId>jaxb-xjc</artifactId>
             <version>2.1.7</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.ws</groupId>
+            <artifactId>spring-ws-security</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.security</groupId>
+                    <artifactId>spring-security-core</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <!-- XWSS -->
+            <groupId>com.sun.xml.wss</groupId>
+            <artifactId>xws-security</artifactId>
+            <version>3.0</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>javax.xml.crypto</groupId>
+                    <artifactId>xmldsig</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
 
+
+        <!-- https://mvnrepository.com/artifact/javax.activation/activation -->
+        <dependency>
+            <groupId>javax.activation</groupId>
+            <artifactId>activation</artifactId>
+            <version>1.1</version>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-
     </dependencies>
-<build>
-    <plugins>
-        <plugin>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-maven-plugin</artifactId>
-        </plugin>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>jaxb2-maven-plugin</artifactId>
                 <version>3.1.0</version>
+                <executions>
+                    <execution>
+                        <id>xjc</id>
+                        <goals>
+                            <goal>xjc</goal>
+                        </goals>
+                    </execution>
+                </executions>
+
+                <configuration>
+                    <sources>
+                        <source>${project.basedir}/src/main/resources/xsds/</source>
+                    </sources>
+                    <outputDirectory>${project.basedir}/src/main/java/</outputDirectory>
+
+                    <clearOutputDir>false</clearOutputDir>
+                </configuration>
+
                 <dependencies>
                     <dependency>
                         <groupId>org.glassfish.jaxb</groupId>
@@ -102,42 +147,12 @@
                         <artifactId>jaxb-core</artifactId>
                         <version>2.2.11</version>
                     </dependency>
-                    <!-- https://mvnrepository.com/artifact/javax.activation/activation -->
-                    <dependency>
-                        <groupId>javax.activation</groupId>
-                        <artifactId>activation</artifactId>
-                        <version>1.1</version>
-                    </dependency>
 
-                    <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
-                    <dependency>
-                        <groupId>org.slf4j</groupId>
-                        <artifactId>slf4j-api</artifactId>
-                        <version>2.0.6</version>
-                    </dependency>
 
                 </dependencies>
-                <executions>
-                    <execution>
-                        <id>xjc</id>
-                        <goals>
-                            <goal>xjc</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-
-                    <sources>
-                        <source>${project.basedir}/src/main/resources/xsds/</source>
-                    </sources>
-                    <outputDirectory>${project.basedir}/src/main/java/</outputDirectory>
-
-                    <clearOutputDir>false</clearOutputDir>
-                </configuration>
             </plugin>
 
+        </plugins>
+    </build>
 
-        <!-- end::xsd[] -->
-    </plugins>
-</build>
 </project>
