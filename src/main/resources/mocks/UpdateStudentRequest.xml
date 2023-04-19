@@ -1,5 +1,12 @@
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:stud="http://vkiprono.com/api/studentws/studentdetails">
-    <soapenv:Header/>
+    <soapenv:Header>
+        <wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" mustUnderstand="1">
+            <wsse:UsernameToken>
+                <wsse:Username>bug</wsse:Username>
+                <wsse:Password>bugDev</wsse:Password>
+            </wsse:UsernameToken>
+        </wsse:Security>
+    </soapenv:Header>
     <soapenv:Body>
         <stud:UpdateStudentRequest>
             <student>
